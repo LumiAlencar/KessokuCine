@@ -7,6 +7,11 @@ const info = (imdbID) => {
   window.open("info.html", "_self");
 }
 
+async function wTrailer(id) {
+  let trailer = await fetch(`http://api.traileraddict.com/?imdb=1403865&count=4&width=680`)
+  console.log(trailer);
+}
+
 const iniInfo = () => {
   const id = localStorage.getItem('imdbID');
   fetch(`http://www.omdbapi.com/?i=${id}&plot=full&apikey=${apiKey}`)
@@ -51,7 +56,20 @@ const iniInfo = () => {
           const values = json[dataFields[fieldName]];
           values.forEach(valueObj => {element.innerText = valueObj.Value})
         } else */ if (fieldName === 'Poster') {element.src = json[dataFields[fieldName]];
-        } else {element.innerText = json[dataFields[fieldName]];}}}})}
+        } else {element.innerText = json[dataFields[fieldName]];
+        }
+      }
+    }
+    
+    const corpo = document.querySelector("body")
+    let item = document.createElement("span");
+
+      item.innerHTML = `<button onclick="wTrailer('${json.imdbID}')">Assistir Trailer</button>`;
+
+    corpo.appendChild(item);
+  }
+  )
+}
 
 frmPesquisa.onsubmit = (ev) => {
   searchPage = 1;
@@ -84,7 +102,7 @@ const carregaLista = (json) => {
     item.classList.add("movie");
 
     item.innerHTML = `
-    <div class="titleCard" onclick="info('${element.imdbID}')"><h4>${element.Title}</h4></div> <img src="${element.Poster}" />`;
+    <div class="titleCard" onclick="info('${element.imdbID}')"><h4>${element.Title} (${element.Year})</h4></div> <img src="${element.Poster}" />`;
 
     lista.appendChild(item);
 })}
@@ -110,7 +128,7 @@ const cardIni = (json) => {
     let item = document.createElement("div");
     item.classList.add("movie");
 
-      item.innerHTML = `<div class="titleCard" onclick="info('${element.imdbID}')"><h4>${element.Title}</h4></div> <img src="${element.Poster}"/>`;
+      item.innerHTML = `<div class="titleCard" onclick="info('${element.imdbID}')"><h4>${element.Title} (${element.Year})</h4></div> <img src="${element.Poster}"/>`;
 
     lista.appendChild(item);
   })
@@ -135,7 +153,7 @@ const addMore = (json) => {
     let item = document.createElement("div");
     item.classList.add("movie");
 
-      item.innerHTML = `<div class="titleCard" onclick="info('${element.imdbID}')"><h4>${element.Title}</h4></div> <img src="${element.Poster}"/>`;
+      item.innerHTML = `<div class="titleCard" onclick="info('${element.imdbID}')"><h4>${element.Title} (${element.Year})</h4></div> <img src="${element.Poster}"/>`;
 
     lista.appendChild(item);
   })

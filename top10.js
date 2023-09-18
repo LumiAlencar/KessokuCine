@@ -91,15 +91,14 @@ const info = (imdbID) => {
 }
 
 function load(tag) {
-  const lista = document.querySelector("div.cardMovie");
-  lista.innerHTML = "";
-
-  console.log(tag);
 
 tag.map((element, index) => {
   fetch(`http://www.omdbapi.com/?i=${element}&plot=short&apikey=${apiKey}`)
   .then(result => result.json())
   .then(json => { 
+    const pos = index+1;
+    const lista = document.getElementById(pos);
+    lista.innerHTML = "";
     let item = document.createElement("div");
     item.classList.add("topCards");
     const metaColor = parseInt(json.Metascore) < 40 ? 'metaRed' : parseInt(json.Metascore) > 60 ? 'metaGreen' : parseInt(json.Metascore) >= 40 && parseInt(json.Metascore) <= 60 ? 'metaYellow' : 'metaNA'
@@ -107,7 +106,7 @@ tag.map((element, index) => {
     `<div class="topCards" onclick="info('${json.imdbID}')">
       <img src="${json.Poster}"/>
       <div class="toptxt">
-        <h2>${index+1}. ${json.Title} (${json.Year})</h2>
+        <h2>${pos}. ${json.Title} (${json.Year})</h2>
         <h4 class="geral">${json.Rated} | ${json.Runtime} | ${json.Genre}<h4>
         <div class="rateTop">
           <h5>⭐ ${json.imdbRating}</h5>
