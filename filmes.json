@@ -1,0 +1,74 @@
+{
+  "Homem-Aranha" :{
+    "lançamento" : 2002,
+    "duração" : 121,
+    "nota" : 7.4,
+    "direção" : "Sam Raimi",
+    "trailer" : "https://www.youtube.com/watch?v=t06RUxPbp_c",
+    "card" : "https://m.media-amazon.com/images/I/71oASSfGg0L.jpg",
+    "sinopse" : "Quando o morde uma aranha, o inteligente, e tímido Peter Parker ganha habilidades que deberá usar para lutar contra o mal."
+  },
+  "Homem-Aranha 2" :{
+    "lançamento" : 2004,
+    "duração" : 127,
+    "nota" : 7.5,
+    "direção" : "Sam Raimi",
+    "trailer" : "https://www.youtube.com/watch?v=fRQ67zp1dlg",
+    "card" : "https://rukminim1.flixcart.com/image/850/1000/kzzw5u80/poster/g/0/o/medium-spiderman-2-official-movie-on-good-quality-hd-quality-original-imagbvny3gsbwdfg.jpeg",
+    "sinopse" : "Peter Parker enfrenta uma série de problemas pessoais enquanto lutava contra um cientista brilhante, o doutor Otto Octavius."
+  },
+  "Homem-Aranha 3" :{
+    "lançamento" : 2007,
+    "duração" : 139,
+    "nota" : 6.3,
+    "direção" : "Sam Raimi",
+    "trailer" : "https://www.youtube.com/watch?v=e5wUilOeOmg",
+    "card" : "https://m.media-amazon.com/images/M/MV5BYTk3MDljOWQtNGI2My00OTEzLTlhYjQtOTQ4ODM2MzUwY2IwXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg",
+    "sinopse" : "Uma estranha entidade negra de outro mundo se junta em simbiose com Peter Parker, causando confusão interna ao confrontar novos vilões, tentações e um desejo de vingança."
+  },
+  "O Espetacular Homem-Aranha" :{
+    "lançamento" : 2012,
+    "duração" : 136,
+    "nota" : 6.9,
+    "direção" : "Marc Webb",
+    "trailer" : "",
+    "card" : "",
+    "sinopse" : "Após ser mordido por uma aranha, Peter Parker ganha potências e se aventura a resolver a misteriosa morte de seus pais."
+  },
+  "O Espetacular Homem-Aranha 2" :{
+    "lançamento" : 0,
+    "duração" : 0,
+    "nota" : 0,
+    "direção" : "",
+    "trailer" : "",
+    "card" : "",
+    "sinopse" : ""
+  },
+  "Homem-Aranha: De Volta ao Lar" :{
+    "lançamento" : 0,
+    "duração" : 0,
+    "nota" : 0,
+    "direção" : "",
+    "trailer" : "",
+    "card" : "",
+    "sinopse" : ""
+  },
+  "Homem-Aranha: Longe de Casa" :{
+    "lançamento" : 0,
+    "duração" : 0,
+    "nota" : 0,
+    "direção" : "",
+    "trailer" : "",
+    "card" : "",
+    "sinopse" : ""
+  },
+  "Homem-Aranha: Sem volta para casa" :{
+    "lançamento" : 0,
+    "duração" : 0,
+    "nota" : 0,
+    "direção" : "",
+    "trailer" : "",
+    "card" : "",
+    "sinopse" : ""
+  }
+}

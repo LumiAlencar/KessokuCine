@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://cdn1.iconfinder.com/data/icons/music-media-2/512/614731-cinema-512.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>結束Cine</title>
+  <script src="top10.js"></script>
+  <script src="cards.js"></script>
+</head>
+
+<body onload="load(top10)">
+  <div class="head">
+    <div>
+      <h1 onclick="window.location.reload();">結束Cine</h1>
+      <a href="index.html">Início</a> | <a href="top10.html">Top 10</a>
+      <ul>
+        <button class="tagbut" onclick="load(top10)">&#127941 Top 10</button>
+        <button class="tagbut" onclick="load(action10)">&#128165 Ação</button>
+        <button class="tagbut" onclick="load(drama10)">&#127917 Drama</button>
+        <button class="tagbut" onclick="load(romance10)">&#128152 Romance</button>
+        <button class="tagbut" onclick="load(comedy10)">🤡 Comédia</button>
+        <button class="tagbut" onclick="load(terror10)">👻 Terror</button>
+        <button class="tagbut" onclick="load(crime10)">🚨 Crime</button>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="cardMovie">
+    <div id="1"></div>
+    <div id="2"></div>
+    <div id="3"></div>
+    <div id="4"></div>
+    <div id="5"></div>
+    <div id="6"></div>
+    <div id="7"></div> 
+    <div id="8"></div>
+    <div id="9"></div>
+    <div id="10"></div>
+  </div>
+
+</body>

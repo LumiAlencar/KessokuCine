@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://cdn1.iconfinder.com/data/icons/music-media-2/512/614731-cinema-512.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>結束Cine</title>
+  <script src="cards.js"></script>
+</head>
+
+<body onload="iniInfo()">
+  <div class="head">
+    <div>
+      <h1 onclick="window.location.reload();">結束Cine</h1>
+      <a href="index.html">Início</a> | <a href="top10.html">Top 10</a>
+    </div>
+  </div>
+
+<div class="body">
+  <div class="poster">
+    <img src="" alt="" id="Poster">
+  </div>
+
+  <div class="info">
+
+    <h1 id="Title"></h1>
+
+    <div class="tags">
+      <h4 id="Year"></h4>
+      <h4 id="Rated"></h4>
+      <h4 id="Runtime"></h4>
+      <h4 id="Released"></h4>
+      <h4 id="Genre"></h3>
+    </div>
+
+    <h2 class="plottitle">Resumo:</h2>
+    <div class="plotbox">
+      <h2 id="Plot"></h2>
+    </div>
+
+    <div class="cast">
+      <h2>Diretor:</h2>
+      <h3 id="Director"></h3>
+      <h2>Roteirista:</h2>
+      <h3 id="Writer"></h3>
+      <h2>Atores:</h2>
+      <h3 id="Actors"></h3>
+    </div>
+
+    <h2 class="notas">Notas:</h2>
+    <div class="ratings">
+      <h3><img src="https://cdn-icons-png.flaticon.com/512/5977/5977585.png" alt="imdb" class="icon">IMDB: </h3><h4 id="IMDB"></h4>
+      <h3><img src="https://thesciencesurvey.com/wp-content/uploads/2023/05/FreshTomato.svg.png" alt="imdb" class="icon">Rotten Tomatoes: </h3><h4 id="RT"></h4>
+      <h3><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Metacritic.svg/2048px-Metacritic.svg.png" alt="imdb" class="icon">Metacritic: </h3><h4 id="MC"></h4>
+    </div> 
+
+  </div>
+
+</div>
+<button onclick="location.href='index.html';">Retornar ao Início</button>
+</body>
+
+
+</html>
