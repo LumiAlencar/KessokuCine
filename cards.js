@@ -5,7 +5,6 @@ const options = {
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTk1ZDAxMzY5NTA1Y2ExYjZiYzY1YjUxZmI1ZGQ1YiIsInN1YiI6IjY1MDg4ZmIwOGE4OGIyMDEwMDBhM2IxNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.sHvaehEzWlAeO0ZZ61R_-UpetR5Nqw_ESzwTpOFkoKY'
   }
 };
-
 const apiKey = '4bb90f9d';
 const apiTMDB = '1995d01369505ca1b6bc65b51fb5dd5b'
 const frmPesquisa = document.querySelector("form");
@@ -98,10 +97,13 @@ const iniInfo = () => {
     
     const corpo = document.querySelector("body")
     let item = document.createElement("span");
+    let fav = document.createElement("span");
 
       item.innerHTML = `<button onclick="wTrailer('${json.imdbID}')" style="position: absolute;right: 0px;">▶️ Assistir Trailer</button>`;
+      fav.innerHTML = `<button onclick="setFav('${json.imdbID}')">⭐ Favorito</button>`;
 
     corpo.appendChild(item);
+    corpo.appendChild(fav);
   }
   )
 }
@@ -118,7 +120,7 @@ frmPesquisa.onsubmit = (ev) => {
     return;
   }
 
-  fetch(`http://www.omdbapi.com/?s=${pesquisa}&apikey=${apiKey}`)
+  fetch(`http://www.omdbapi.com/?s=${pesquisa}&type=movie&apikey=${apiKey}`)
     .then(result => result.json())
     .then(json => carregaLista(json)); 
     return pesquisa;
@@ -137,7 +139,10 @@ const carregaLista = (json) => {
     item.classList.add("movie");
 
     item.innerHTML = `
-    <div class="titleCard" onclick="info('${element.imdbID}')"><h4>${element.Title} (${element.Year})</h4></div> <img src="${element.Poster}" />`;
+    <div class="titleCard" onclick="info('${element.imdbID}')">
+    <h4>${element.Title} (${element.Year})</h4>
+    </div> 
+    <img src="${element.Poster}" />`;
 
     lista.appendChild(item);
 })}
@@ -145,7 +150,7 @@ const carregaLista = (json) => {
 const ini = () => {
   pesquisa = "spider-man";
   searchPage = 1;
-  fetch(`http://www.omdbapi.com/?s=${pesquisa}&apikey=${apiKey}`)
+  fetch(`http://www.omdbapi.com/?s=${pesquisa}&type=movie&apikey=${apiKey}`)
     .then(result => result.json())
     .then(json => cardIni(json)); 
     // console.log(json);
@@ -163,7 +168,11 @@ const cardIni = (json) => {
     let item = document.createElement("div");
     item.classList.add("movie");
 
-      item.innerHTML = `<div class="titleCard" onclick="info('${element.imdbID}')"><h4>${element.Title} (${element.Year})</h4></div> <img src="${element.Poster}"/>`;
+      item.innerHTML = `
+      <div class="titleCard" onclick="info('${element.imdbID}')">
+      <h4>${element.Title} (${element.Year})</h4>
+      </div> 
+      <img src="${element.Poster}"/>`;
 
     lista.appendChild(item);
   })
@@ -171,7 +180,7 @@ const cardIni = (json) => {
 
 const showMore = (json) => {
   searchPage += 1; 
-  fetch(`http://www.omdbapi.com/?s=${pesquisa}&page=${searchPage}&apikey=${apiKey}`)
+  fetch(`http://www.omdbapi.com/?s=${pesquisa}&page=${searchPage}&type=movie&apikey=${apiKey}`)
     .then(result => result.json())
     .then(json => addMore(json)); 
     // console.log(json);

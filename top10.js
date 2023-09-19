@@ -115,6 +115,7 @@ tag.map((element, index) => {
         <div class="topPlot">
           <h4>${json.Plot}</h4>
         </div>
+        <h5>Diretor: ${json.Director} | Escritor: ${json.Writer} | Atores: ${json.Actors}</h5>
       </div>
     </div>`;
 
