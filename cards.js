@@ -1,4 +1,13 @@
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTk1ZDAxMzY5NTA1Y2ExYjZiYzY1YjUxZmI1ZGQ1YiIsInN1YiI6IjY1MDg4ZmIwOGE4OGIyMDEwMDBhM2IxNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.sHvaehEzWlAeO0ZZ61R_-UpetR5Nqw_ESzwTpOFkoKY'
+  }
+};
+
 const apiKey = '4bb90f9d';
+const apiTMDB = '1995d01369505ca1b6bc65b51fb5dd5b'
 const frmPesquisa = document.querySelector("form");
 
 const info = (imdbID) => {
@@ -7,9 +16,35 @@ const info = (imdbID) => {
   window.open("info.html", "_self");
 }
 
-async function wTrailer(id) {
-  let trailer = await fetch(`http://api.traileraddict.com/?imdb=1403865&count=4&width=680`)
-  console.log(trailer);
+function wTrailer(id) {
+  fetch(`https://api.themoviedb.org/3/movie/${id}/external_ids`, options)
+  .then(response => response.json())
+  .then(response => {
+    console.log(response)
+    let trailerID = response.id
+    fetch(`https://api.themoviedb.org/3/movie/${trailerID}/videos?language=en-US`, options)
+    .then(trailer => trailer.json())
+    .then(trailer => {
+      console.log(trailer.results)
+      results = trailer.results
+      results.forEach(element => {
+        if (element.name.includes("Official") && element.name.includes("Trailer")) {
+          console.log(element, 'games')
+          tLink = element.key
+          window.open(`https://www.youtube.com/watch?v=${tLink}`, '_blank')
+          .then(true);
+        } else {
+          if (element.name.includes("Trailer") && element.type === "Trailer" ) {
+            console.log(element, 'games')
+            tLink = element.key
+            window.open(`https://www.youtube.com/watch?v=${tLink}`, '_blank')
+            .then(true);
+          }
+        }
+      })
+    })
+    .catch(err => console.error(err));
+    });
 }
 
 const iniInfo = () => {
@@ -64,7 +99,7 @@ const iniInfo = () => {
     const corpo = document.querySelector("body")
     let item = document.createElement("span");
 
-      item.innerHTML = `<button onclick="wTrailer('${json.imdbID}')">Assistir Trailer</button>`;
+      item.innerHTML = `<button onclick="wTrailer('${json.imdbID}')" style="position: absolute;right: 0px;">▶️ Assistir Trailer</button>`;
 
     corpo.appendChild(item);
   }
