@@ -30,6 +30,13 @@ h1 {
   display: inline-block;
 }
 
+.h1s {
+  display: block;
+  color: var(--cl1);
+  text-align: center;
+  margin: auto;
+}
+
 .head {
     background-color: var(--cl1);
     padding: 10px;
@@ -100,7 +107,7 @@ form i:hover {
 
 /* Grid de Cards */
 .grid {
-    margin-top: 600px;
+    margin: 2vw auto;
     height: fit-content;
     min-height: 10em;
     content: "";
@@ -111,11 +118,33 @@ form i:hover {
     background-color: var(--bg2);
     border-radius: 20px;
     padding: 20px;
-    position: relative;
-    box-sizing: border-box;
-    margin: auto;
     align-content: space-between;
     row-gap: 4vw;
+}
+
+.favList {
+  display: grid;
+  margin: 1vw auto;
+  height: 12vw;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  width: 100%;
+  overflow-x: auto;
+  background-color: var(--bg2);
+  content: "";
+  gap: 0.1vw;
+  clear: both;
+}
+
+.favList .movie {
+  width: 7.5vw;
+  height: 10vw;
+  border-radius: 0px;
+}
+
+.favList .movie:hover {
+  width: 7.5vw;
+  height: 10vw;
 }
 
 .movie {

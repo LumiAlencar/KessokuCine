@@ -8,6 +8,30 @@ const options = {
 const apiKey = '4bb90f9d';
 const apiTMDB = '1995d01369505ca1b6bc65b51fb5dd5b'
 const frmPesquisa = document.querySelector("form");
+const corpo = document.querySelector("body")
+
+const showFav = () => {
+  const favs = document.querySelector("div.favList");
+  console.log(favs)
+
+  let favList = localStorage.getItem("fav") !== null ? JSON.parse(localStorage.getItem("fav")) : []
+  if (favList === null) {
+    const nullMsg = "Nenhum filme definido como favorito"
+    favs.innerHTML = nullMsg;
+  } else {
+    favList.forEach(element => {
+      fetch(`http://www.omdbapi.com/?i=${element}&apikey=${apiKey}`)
+      .then(result => result.json())
+      .then(json => {
+        console.log(json)
+        let item = document.createElement("div");
+        item.classList.add("movie");
+        item.innerHTML = `<div class="titleCard" onclick="info('${json.imdbID}')"><h4>${json.Title} (${json.Year})</h4></div> <img src="${json.Poster}"/>`;
+        favs.appendChild(item);
+      })
+    })
+  }
+}
 
 const info = (imdbID) => {
   const key = "imdbID";
@@ -95,7 +119,6 @@ const iniInfo = () => {
       }
     }
     
-    const corpo = document.querySelector("body")
     let item = document.createElement("span");
     let fav = document.createElement("span");
 
@@ -153,6 +176,7 @@ const ini = () => {
   fetch(`http://www.omdbapi.com/?s=${pesquisa}&type=movie&apikey=${apiKey}`)
     .then(result => result.json())
     .then(json => cardIni(json)); 
+    showFav();
     // console.log(json);
 }
 
